@@ -2,6 +2,11 @@
 
 if [ ! -n "$BASH" ]; then echo Please run this script $0 with bash; exit 1; fi
 
+function trim()
+{
+  echo "$1" | awk '{gsub(/^ +| +$/,"")} {print $0}'
+}
+
 function create_site()
 {
     site_name=$HOST
