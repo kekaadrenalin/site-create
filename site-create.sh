@@ -25,9 +25,6 @@ function create_site()
 		ssh-keygen -b 4096 -t rsa -N "${site_name}" -f /home/${site_name}/.ssh/id_rsa
 		chmod 0600 /home/${site_name}/.ssh/id_rsa
 
-		ssh-keygen -b 4096 -t dsa -N "${site_name}" -f /home/${site_name}/.ssh/id_dsa
-		chmod 0600 /home/${site_name}/.ssh/id_dsa
-
 		echo  "<?php phpinfo();" > /home/${site_name}/httpdocs/web/index.php
 		chown ${site_name}:www-data -R /home/${site_name}
 	fi
