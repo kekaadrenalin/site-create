@@ -48,7 +48,7 @@ function create_site()
     LogLevel warn
     CustomLog \${APACHE_LOG_DIR}/${site_name}-access.log combined
 </VirtualHost>
-" > /etc/apache2/sites-enabled/${site_name}.conf
+" | sudo tee /etc/apache2/sites-enabled/${site_name}.conf
 
 main="
 # Apache back-end
@@ -148,10 +148,12 @@ server {
         log_not_found off;
     }
 }
-" > /etc/nginx/conf.d/${site_name}.conf
+" | sudo tee /etc/nginx/conf.d/${site_name}.conf
 
     service apache2 reload
     service nginx reload
+
+    clear
 
     echo ""
     echo "--------------------------------------------------------"
