@@ -47,6 +47,7 @@ function create_site()
         Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
         Order allow,deny
         Allow from all
+        Require all granted
     </Directory>
     ErrorLog \${APACHE_LOG_DIR}/${site_name}-error.log
     # Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
